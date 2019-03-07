@@ -1,7 +1,7 @@
 ------------------------------------------
 --DDL statement for table 'HR' database--
 --------------------------------------------
-
+drop table EMPLOYEES;
 CREATE TABLE EMPLOYEES (
                             EMP_ID CHAR(9) NOT NULL, 
                             F_NAME VARCHAR(15) NOT NULL,
@@ -15,7 +15,8 @@ CREATE TABLE EMPLOYEES (
                             MANAGER_ID CHAR(9),
                             DEP_ID CHAR(9) NOT NULL,
                             PRIMARY KEY (EMP_ID));
-                            
+
+  drop table JOB_HISTORY;                            
   CREATE TABLE JOB_HISTORY (
                             EMPL_ID CHAR(9) NOT NULL, 
                             START_DATE DATE,
@@ -23,20 +24,21 @@ CREATE TABLE EMPLOYEES (
                             DEPT_ID CHAR(9),
                             PRIMARY KEY (EMPL_ID,JOBS_ID));
  
+ drop table JOBS;
  CREATE TABLE JOBS (
                             JOB_IDENT CHAR(9) NOT NULL, 
-                            JOB_TITLE VARCHAR(15) ,
+                            JOB_TITLE VARCHAR(35) ,
                             MIN_SALARY DECIMAL(10,2),
                             MAX_SALARY DECIMAL(10,2),
                             PRIMARY KEY (JOB_IDENT));
-
+drop table DEPARTMENTS;
 CREATE TABLE DEPARTMENTS (
                             DEPT_ID_DEP CHAR(9) NOT NULL, 
                             DEP_NAME VARCHAR(15) ,
-                            MANAGER_ID CHAR(9),
+                            MANAGER_ID CHAR(9) not NULL,
                             LOC_ID CHAR(9),
-                            PRIMARY KEY (DEPT_ID_DEP));
-
+                            PRIMARY KEY (MANAGER_ID));
+drop table LOCATIONS;
 CREATE TABLE LOCATIONS (
                             LOCT_ID CHAR(9) NOT NULL,
                             DEP_ID_LOC CHAR(9) NOT NULL,
